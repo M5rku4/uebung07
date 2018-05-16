@@ -1,6 +1,8 @@
 package ueb07;
 
-class Student {
+import java.util.Comparator;
+
+class Student{
 	private int matrikel;
 	private String name;
 
@@ -8,6 +10,17 @@ class Student {
 		setMatrikel(m);
 		setName(n);
 	}
+
+	public static Comparator<Student> sortNameAndMat= (s1, s2) ->
+	{
+		if(s1.getName().compareTo(s2.getName()) > 0){
+			return 1;
+		} else if(s1.getName().compareTo(s2.getName()) < 0){
+			return -1;
+		} else {
+			return Integer.compare(s1.getMatrikel(), s2.getMatrikel());
+		}
+	};
 
 	public String getName() {
 		return name;
